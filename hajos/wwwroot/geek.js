@@ -8,7 +8,7 @@ window.onload = letöltés
 function letöltés() {
     fetch('/jokes.json')
         .then(response => response.json())
-        .then(kérdések => letöltésBefejeződött(kérdések)
+        .then(data => letöltésBefejeződött(data)
 
         );
 }
@@ -21,10 +21,12 @@ function letöltésBefejeződött(d) {
     console.log("Sikeres letöltés")
     console.log(d)
     viccek = d;
+
     for (var i = 0; i < viccek.length; i++) {
-        var ujsor = document.createElement("h1")
-        ujsor.innerText = i;
-       
+        console.log(viccek[i].questionText)
+        let elem = document.createElement("div")
+        elem.innerHTML = viccek[i].kérdések
+       ide.appendChild(elem)
     }
     
 
